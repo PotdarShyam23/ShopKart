@@ -1,19 +1,49 @@
 # ShopKart
 
-ShopKart is a full-stack MERN shopping application with customer accounts, product browsing, a wishlist, a shopping cart, and Razorpay test checkout. Customers can save products, manage quantities, place test orders, and view their order history.
+ShopKart is a full-stack MERN shopping application with customer accounts, product browsing, a wishlist, a shopping cart, and Razorpay test checkout.
+
+Customers can save products, manage quantities, place test orders, and view their order history.
 
 The interface includes responsive layouts, product photography, toast notifications, a vibrant color palette, and animations. Component and page styling lives in separate CSS files.
 
+---
+
 ## Features
 
-- **Authentication:** register, log in, log out, and view a customer profile. Passwords are hashed with bcrypt; login uses a JWT stored in an HttpOnly cookie.
-- **Products:** browse product cards, search by name, filter by category, and view product details, prices, images, and stock.
-- **Wishlist:** save and remove products, receive notifications, and see a heart animation on the first wishlist visit in a browser session.
-- **Cart:** add and remove products, change quantities, view item totals and the subtotal, and see animated feedback after a successful quantity update.
-- **Checkout:** enter and validate shipping details, then open Razorpay checkout in test mode.
-- **Orders:** view order confirmation, order history, shipping details, item snapshots, and a timeline based on the saved order status.
-- **Responsive design:** mobile-friendly layouts, reusable icons, loading states, scroll reveals, and reduced-motion support.
-- **Deployment:** one Render service serves the React frontend and Express backend, with MongoDB Atlas storing the data.
+### Authentication
+
+register, log in, log out, and view a customer profile. Passwords are hashed with bcrypt; login uses a JWT stored in an HttpOnly cookie.
+
+### Products
+
+browse product cards, search by name, filter by category, and view product details, prices, images, and stock.
+
+### Wishlist
+
+save and remove products, receive notifications, and see a heart animation on the first wishlist visit in a browser session.
+
+### Cart
+
+add and remove products, change quantities, view item totals and the subtotal, and see animated feedback after a successful quantity update.
+
+### Checkout
+
+enter and validate shipping details, then open Razorpay checkout in test mode.
+
+### Orders
+
+view order confirmation, order history, shipping details, item snapshots, and a timeline based on the saved order status.
+
+### Responsive design
+
+mobile-friendly layouts, reusable icons, loading states, scroll reveals, and reduced-motion support.
+
+### Deployment
+
+one Render service serves the React frontend and Express backend, with MongoDB Atlas storing the data.
+
+
+---
 
 ## Technology stack
 
@@ -26,6 +56,8 @@ The interface includes responsive layouts, product photography, toast notificati
 | Authentication | JSON Web Tokens, bcryptjs, cookie-parser |
 | Payments | Razorpay SDK and browser checkout in test mode |
 | Tests | Node.js built-in test runner |
+
+---
 
 ## Project structure
 
@@ -54,6 +86,8 @@ ShopKart/
 ├── DEPLOYMENT.md            # Deployment walkthrough
 └── LAB06.md                 # Checkout implementation and testing notes
 ```
+
+---
 
 ## Local setup
 
@@ -118,19 +152,29 @@ The Axios client uses `http://localhost:5000` locally and `/api` in a production
 
 Product records live in MongoDB. Cloning this repository does not seed a new database; bundled product images are in `auth/public/products`.
 
+---
+
 ## Checkout flow
 
 1. `Checkout.jsx` reads the cart, collects shipping details, and validates the form.
+
 2. `razorpayCheckout.js` loads the Razorpay browser checkout script when needed.
+
 3. The backend reads the authenticated customer's database cart, validates current prices and stock, and creates a pending ShopKart order and a Razorpay order.
+
 4. The frontend opens checkout using the order ID and amount returned by the backend.
+
 5. After payment, the frontend sends the payment identifiers and signature to the backend.
+
 6. The backend checks order ownership and the payment signature. A MongoDB transaction marks the order paid and placed, and clears the customer's database cart.
+
 7. The frontend clears its local cart state and opens the order success page.
 
 Canceling checkout or failing payment does not clear the cart. The backend calculates totals instead of trusting a browser-supplied total. Each saved order retains item name, price, quantity, and image snapshots.
 
 `useOrder.js` loads an individual order. `OrderInfo.jsx` displays its details, `OrderTimeline.jsx` displays its stored progress, and `orderFormat.js` formats rupee amounts and dates. The timeline does not automatically advance an order's status.
+
+---
 
 ## API routes
 
@@ -157,6 +201,8 @@ Production uses the `/api` prefix below. Development also supports the original 
 | GET | `/api/orders` | Read the customer's order history | Yes |
 | GET | `/api/orders/:id` | Read one of the customer's orders | Yes |
 | GET | `/health` | Check service and database readiness | No |
+
+---
 
 ## Build and test
 
@@ -188,6 +234,8 @@ npm run lint --prefix auth
 
 On Windows PowerShell, use `npm.cmd` instead of `npm` if execution policy blocks `npm.ps1`.
 
+---
+
 ## Render deployment
 
 The root `render.yaml` defines one Node web service. Express serves the built frontend, product images, and `/api` routes from the same origin.
@@ -203,12 +251,14 @@ Connect the GitHub repository through Render's Blueprint workflow, enter your Mo
 
 See [DEPLOYMENT.md](DEPLOYMENT.md) for the walkthrough, [LAB06.md](LAB06.md) for checkout implementation notes, and [PHOTO-SOURCES.md](auth/public/products/PHOTO-SOURCES.md) for image credits.
 
+---
+
 ## Current scope
 
 - Payments deliberately use **Razorpay test mode**; live keys are rejected.
-- Product creation currently has no authentication middleware. Restrict that endpoint before operating a public production catalog.
-- There is no admin dashboard, fulfillment workflow, automatic order status advancement, payment webhook reconciliation, or stock reservation/decrement during checkout.
-- Order history and payment verification are restricted to the authenticated customer who owns the order.
 
- 
- 
+- Product creation currently has no authentication middleware. Restrict that endpoint before operating a public production catalog.
+
+- There is no admin dashboard, fulfillment workflow, automatic order status advancement, payment webhook reconciliation, or stock reservation/decrement during checkout.
+
+- Order history and payment verification are restricted to the authenticated customer who owns the order.
