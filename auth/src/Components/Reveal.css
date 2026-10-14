@@ -1,0 +1,31 @@
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.product-grid > .reveal:nth-child(3n + 2) {
+  transition-delay: 0.07s;
+}
+.product-grid > .reveal:nth-child(3n) {
+  transition-delay: 0.14s;
+}
+.product-grid > .reveal {
+  min-width: 0;
+  display: flex;
+}
+.product-grid > .reveal > .product-card {
+  width: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

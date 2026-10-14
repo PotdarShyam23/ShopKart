@@ -1,0 +1,124 @@
+.detail-shell > .subtle-link {
+  margin-bottom: 28px;
+}
+.product-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: center;
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  background: #fff;
+  animation: rise-in 0.45s ease both;
+}
+.detail-image {
+  display: grid;
+  place-items: center;
+  min-height: 420px;
+  background: #f2edf8;
+  padding: 35px;
+  border-radius: 18px;
+}
+.category-fashion .detail-image {
+  background: #fbefeb;
+}
+.category-home .detail-image {
+  background: #f3efe8;
+}
+.detail-image img {
+  width: 100%;
+  height: 350px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  transition: transform 0.45s ease;
+}
+.detail-image:hover img {
+  transform: scale(1.05);
+}
+.detail-copy > .eyebrow {
+  margin-bottom: 16px;
+}
+.detail-copy h1 {
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  margin-bottom: 20px;
+  overflow-wrap: anywhere;
+}
+.detail-description {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.detail-price {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  margin: 24px 0 14px;
+}
+.detail-stock {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #72a08b;
+  font-size: 0.8rem;
+}
+.detail-stock .icon {
+  width: 16px;
+}
+.detail-cart-button {
+  width: 100%;
+  margin-top: 12px;
+}
+.detail-cart-button > .icon:last-child {
+  margin-left: auto;
+}
+.detail-facts {
+  display: grid;
+  gap: 12px;
+  padding-top: 24px;
+  margin-top: 24px;
+  border-top: 1px solid var(--border);
+  font-size: 0.72rem;
+  color: #a298af;
+}
+.detail-facts > span {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.detail-facts .icon {
+  width: 16px;
+  height: 16px;
+}
+.detail-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 80px;
+  color: var(--muted);
+}
+.detail-state p {
+  margin: 0;
+}
+@media (max-width: 800px) {
+  .product-details {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    padding: 22px;
+  }
+  .detail-image {
+    min-height: 300px;
+  }
+  .detail-image img {
+    height: 260px;
+  }
+}
+@media (max-width: 480px) {
+  .detail-image {
+    padding: 20px;
+    min-height: 250px;
+  }
+  .detail-image img {
+    height: 220px;
+  }
+}

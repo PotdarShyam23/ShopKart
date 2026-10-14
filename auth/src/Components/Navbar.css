@@ -1,0 +1,162 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgb(250 249 246 / 94%);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+.navbar-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  min-height: 88px;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 26px;
+  flex-wrap: wrap;
+}
+.shop-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 1.4rem;
+  font-weight: 750;
+  letter-spacing: -0.055em;
+  flex-shrink: 0;
+}
+.brand-mark {
+  width: 40px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 6px 18px rgb(99 81 214 / 18%);
+  transform: rotate(-5deg);
+}
+.brand-mark .icon {
+  width: 24px;
+  height: 24px;
+}
+.brand-accent {
+  color: var(--accent);
+}
+.shop-brand small {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.47rem;
+  letter-spacing: 0.19em;
+  font-weight: 650;
+  color: var(--muted);
+}
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 12px;
+  border-radius: 11px;
+  color: var(--muted);
+  font-weight: 550;
+  font-size: 0.8rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nav-link .icon {
+  width: 17px;
+  height: 17px;
+}
+.nav-link:hover {
+  background: #f0edff;
+  color: var(--accent);
+}
+.nav-link[aria-current="page"] {
+  color: var(--accent);
+  background: #efebff;
+}
+.nav-count {
+  min-width: 21px;
+  height: 21px;
+  padding: 0 5px;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  background: #e6e0fa;
+  color: #5540a5;
+  font-size: 0.65rem;
+  font-weight: 750;
+}
+.logout-button {
+  padding: 10px 13px;
+  min-height: 39px;
+  border-color: var(--border);
+  background: #fff;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+.logout-button .icon {
+  width: 15px;
+  height: 15px;
+}
+.logout-button:hover:not(:disabled) {
+  background: #fff0eb;
+  color: #b75541;
+  box-shadow: none;
+  border-color: #efccc2;
+}
+.navbar-error {
+  width: 100%;
+  margin: 0;
+  color: #b75541;
+  font-size: 0.85rem;
+}
+@media (max-width: 1050px) {
+  .navbar-inner {
+    gap: 12px;
+  }
+  .nav-link {
+    padding: 10px 8px;
+    font-size: 0.75rem;
+  }
+  .nav-link .icon {
+    display: none;
+  }
+}
+@media (max-width: 760px) {
+  .navbar-inner {
+    padding: 14px 18px 10px;
+  }
+  .shop-brand {
+    font-size: 1.25rem;
+  }
+  .site-nav {
+    width: 100%;
+    order: 3;
+    overflow-x: auto;
+    gap: 4px;
+    padding: 2px 0 4px;
+    scrollbar-width: none;
+  }
+  .nav-link {
+    flex: 1;
+    justify-content: center;
+    padding: 10px;
+    font-size: 0.75rem;
+  }
+  .logout-button {
+    margin-left: auto;
+  }
+  .brand-mark {
+    width: 34px;
+    height: 37px;
+  }
+}

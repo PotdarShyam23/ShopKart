@@ -1,0 +1,288 @@
+.account-welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 36px 40px;
+  background: #ece8f6;
+  border: 1px solid #e3dcec;
+  border-radius: 25px;
+  margin-bottom: 30px;
+  animation: rise-in 0.45s ease both;
+}
+.account-welcome .eyebrow {
+  margin-bottom: 16px;
+  font-size: 0.6rem;
+}
+.account-welcome h1 {
+  font-size: clamp(2rem, 3.5vw, 2.9rem);
+  margin-bottom: 14px;
+}
+.account-welcome p {
+  color: #81758d;
+  font-size: 0.9rem;
+}
+.account-welcome-icon {
+  display: grid;
+  place-items: center;
+  width: 140px;
+  height: 140px;
+  flex-shrink: 0;
+  border-radius: 35px;
+  background: #dbd1ec;
+  color: #8b72b8;
+  transform: rotate(8deg);
+}
+.account-welcome-icon .icon {
+  width: 70px;
+  height: 70px;
+  stroke-width: 1.2;
+}
+.account-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 24px;
+}
+.account-avatar {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 15px;
+  background: #f2edfc;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+.account-profile h2 {
+  margin-bottom: 8px;
+}
+.account-profile > p {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.account-profile dl {
+  margin: 25px 0 0;
+  display: grid;
+  gap: 20px;
+}
+.account-profile dt {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #a196ae;
+  font-size: 0.65rem;
+  margin-bottom: 6px;
+}
+.account-profile dt .icon {
+  width: 14px;
+  height: 14px;
+}
+.account-profile dd {
+  margin: 0;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.account-shortcuts {
+  display: grid;
+  gap: 16px;
+}
+.account-shortcut {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 26px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  text-decoration: none;
+  color: var(--ink);
+  background: #fff;
+}
+.account-shortcut:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow);
+}
+.account-shortcut > span {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  flex-shrink: 0;
+  background: #eee8fa;
+  color: #8c71be;
+}
+.shortcut-coral > span {
+  background: #ffede7;
+  color: #d3937d;
+}
+.shortcut-mint > span {
+  background: #e9f3ed;
+  color: #80a290;
+}
+.account-shortcut h2 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+}
+.account-shortcut p {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.account-shortcut > .icon {
+  margin-left: auto;
+  color: #ac9cc5;
+}
+@media (max-width: 760px) {
+  .account-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .account-welcome {
+    padding: 28px;
+  }
+  .account-welcome-icon {
+    width: 90px;
+    height: 90px;
+  }
+  .account-welcome-icon .icon {
+    width: 45px;
+    height: 45px;
+  }
+}
+@media (max-width: 480px) {
+  .account-welcome-icon {
+    display: none;
+  }
+  .account-welcome h1 {
+    font-size: 2rem;
+  }
+  .account-shortcut {
+    padding: 20px;
+  }
+}
+
+/* More colour for the actual profile details, not only the welcome banner. */
+.account-page .account-profile {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #f2e8ff 0%, #fff5fa 58%, #ffffff 100%);
+  border-color: #ddc5ef;
+  box-shadow: 0 18px 45px #714b8d12;
+}
+.account-page .account-profile::before {
+  content: "";
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  right: -48px;
+  top: -40px;
+  border: 24px solid #e4c8fb70;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.account-page .account-avatar {
+  width: 62px;
+  height: 62px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #a775ed, #d192d5);
+  color: #fff;
+  box-shadow: 0 9px 22px #ab72dd35;
+  transform: rotate(-5deg);
+}
+.account-page .account-avatar .icon {
+  width: 28px;
+  height: 28px;
+}
+.profile-kicker {
+  display: block;
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #a16eb5;
+  margin-bottom: 9px;
+}
+.account-page .account-profile h2 {
+  color: #542c80;
+  font-size: 1.55rem;
+}
+.account-page .account-profile > p {
+  color: #91729d;
+}
+.account-page .account-profile dl {
+  gap: 12px;
+}
+.account-page .account-profile dl > div {
+  padding: 16px 18px;
+  border-radius: 13px;
+  background: #ede3fb;
+  border: 1px solid #e0d0f0;
+  border-left: 4px solid #b38adf;
+}
+.account-page .account-profile dl > div:nth-child(2) {
+  background: #ffe7ef;
+  border-color: #f5cfdf;
+  border-left-color: #de8bb0;
+}
+.account-page .account-profile dl > div:nth-child(3) {
+  background: #e4f4ef;
+  border-color: #c7e4da;
+  border-left-color: #74b59d;
+}
+.account-page .account-profile dt {
+  font-size: 0.68rem;
+  color: #76518f;
+}
+.account-page .account-profile dd {
+  font-size: 0.93rem;
+  font-weight: 600;
+  color: #563575;
+}
+.account-page .account-profile dl > div:nth-child(2) dt {
+  color: #9e5575;
+}
+.account-page .account-profile dl > div:nth-child(2) dd {
+  color: #854361;
+}
+.account-page .account-profile dl > div:nth-child(3) dt {
+  color: #4d7e69;
+}
+.account-page .account-profile dl > div:nth-child(3) dd {
+  color: #3b7561;
+}
+.account-page .account-shortcut.shortcut-violet {
+  background: linear-gradient(115deg, #ede1ff, #f8f2ff);
+  border-color: #d9c1f0;
+}
+.account-page .account-shortcut.shortcut-coral {
+  background: linear-gradient(115deg, #ffe1e2, #fff3ed);
+  border-color: #f4c9ce;
+}
+.account-page .account-shortcut.shortcut-mint {
+  background: linear-gradient(115deg, #d8f1e7, #effaf3);
+  border-color: #bde2d0;
+}
+.account-page .shortcut-violet h2 {
+  color: #7443a5;
+}
+.account-page .shortcut-coral h2 {
+  color: #a65270;
+}
+.account-page .shortcut-mint h2 {
+  color: #3e8268;
+}
+.account-page .account-shortcut p {
+  color: #88758f;
+}
+.account-page .account-shortcut > .icon {
+  transition: transform 0.3s ease;
+}
+.account-page .account-shortcut:hover > .icon {
+  transform: translateX(5px);
+}
+@media (max-width: 480px) {
+  .account-page .account-profile {
+    padding: 22px;
+  }
+  .account-page .account-profile dl > div {
+    padding: 14px;
+  }
+}
