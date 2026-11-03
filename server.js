@@ -4,7 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-const path = require("path");
+
 const customerRoutes = require("./Routes/rotes.js");
 const productRoutes = require("./Routes/product.js");
 const wishlistRoutes = require("./Routes/wishlist.js");
@@ -58,17 +58,17 @@ app.get("/health", (req, res) => {
 });
 // Lets Render check that the service and database are ready.
 
-if (isProduction) {
-  const frontendDirectory = path.join(__dirname, "auth", "dist");
-  app.use(express.static(frontendDirectory));
-  app.get("/{*page}", (req, res, next) => {
-    if (path.extname(req.path)) {
-      return next();
-    }
-    return res.sendFile(path.join(frontendDirectory, "index.html"));
-  });
-  // Serves React pages when users open or refresh a page directly.
-}
+// if (isProduction) {
+//   const frontendDirectory = path.join(__dirname, "auth", "dist");
+//   app.use(express.static(frontendDirectory));
+//   app.get("/{*page}", (req, res, next) => {
+//     if (path.extname(req.path)) {
+//       return next();
+//     }
+//     return res.sendFile(path.join(frontendDirectory, "index.html"));
+//   });
+//   // Serves React pages when users open or refresh a page directly.
+// }
 
 // Connect MongoDB
 if (require.main === module) {
