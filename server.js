@@ -20,9 +20,12 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5173" || 'https://shopkart-1-6cbb.onrender.com',
+    origin: [
+      "http://localhost:5173", 
+      "https://shopkart-1-6cbb.onrender.com"
+    ],
     credentials: true,
-  }),
+  })
 );
 
 // Routes
