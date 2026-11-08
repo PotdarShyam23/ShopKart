@@ -6,8 +6,10 @@ import axios from "axios";
 // xios send the url to backend
 
 let apiBaseURL = "http://localhost:5000";
+
 if (import.meta.env.PROD) {
-  apiBaseURL = "/api";
+  apiBaseURL = "/api"
+  
 }
 if (import.meta.env.VITE_API_URL) {
   apiBaseURL = import.meta.env.VITE_API_URL;
@@ -15,6 +17,7 @@ if (import.meta.env.VITE_API_URL) {
 
 const api = axios.create({
   baseURL: apiBaseURL,
+
   // it send cookie to the browser
   withCredentials: true,
 });
